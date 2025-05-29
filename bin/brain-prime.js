@@ -5,7 +5,7 @@ import { getName } from '../src/cli.js'
 const brainPrime = (name, count = 0) => {
   const randomNumber = Math.round(Math.random() * 100)
   if (count === 0) {
-    console.log('Answer "yes" if the number is even, otherwise answer "no".')
+    console.log('Answer "yes" if given number is prime. Otherwise answer "no".')
   }
   let correctAnswer = 'yes'
   for (let i = 2; i < randomNumber; i++) {
