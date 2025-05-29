@@ -1,20 +1,121 @@
-### Hexlet tests and linter status:
+## Brain Games
+
+Набор консольных игр-упражнений для тренировки ума. Реализовано несколько мини-игр в рамках проекта Hexlet:
+
+* **Проверка на чётность** (`brain-even`)
+* **Калькулятор** (`brain-calc`)
+* **НОД** (`brain-gcd`)
+* **Арифметическая прогрессия** (`brain-progression`)
+* **Простое ли число?** (`brain-prime`)
+
+### Значки статуса
 
 [![Actions Status](https://github.com/SedaMelkhi/backend-project-44/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/SedaMelkhi/backend-project-44/actions)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=SedaMelkhi_backend-project-44\&metric=alert_status)](https://sonarcloud.io/project/overview?id=SedaMelkhi_backend-project-44)
 
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=SedaMelkhi_backend-project-44&metric=alert_status)](https://sonarcloud.io/project/overview?id=SedaMelkhi_backend-project-44)
+---
 
-### Запись игры brain-even
-https://asciinema.org/a/5b678G0fBeOYsfGG9WwYkfH6j
+### Требования
 
-### Запись игры brain-calc
-https://asciinema.org/a/Cn2yU108TV1Cka9y7yh9TcL34
+* Node.js v16 или выше
+* npm или yarn
 
-### Запись игры brain-gcd
-https://asciinema.org/a/1WpZZS6il1dftsALVT2UWAqWB
+### Установка
 
-### Запись игры brain-progression
-https://asciinema.org/a/LpMSI4e9xr923m2bpzMrupBJr
+1. Клонировать репозиторий:
 
-### Запись игры brain-prime
-https://asciinema.org/a/wXXBP6xQ76FarDyqoYtMBhMHC
+   ```bash
+   git clone https://github.com/SedaMelkhi/backend-project-44.git
+   ```
+2. Перейти в каталог проекта и установить зависимости:
+
+   ```bash
+   cd backend-project-44
+   npm install
+   ```
+3. Установить утилиты в систему (или использовать через `npx`):
+
+   ```bash
+   npm link
+   ```
+
+Теперь команды `brain-even`, `brain-calc`, `brain-gcd`, `brain-progression`, `brain-prime` доступны в терминале.
+
+### Запуск игр
+
+```bash
+$ brain-even
+Welcome to the Brain Games!
+May I have your name? Sam
+Hello, Sam!
+Answer "yes" if the number is even, otherwise answer "no".
+Question: 15
+Your answer: no
+Correct!
+...
+Congratulations, Sam!
+```
+
+Аналогично для других игр командами:
+
+* `brain-calc`
+* `brain-gcd`
+* `brain-progression`
+* `brain-prime`
+
+---
+
+### Демонстрации (asciinema)
+
+* **brain-even**: [https://asciinema.org/a/5b678G0fBeOYsfGG9WwYkfH6j](https://asciinema.org/a/5b678G0fBeOYsfGG9WwYkfH6j)
+* **brain-calc**: [https://asciinema.org/a/Cn2yU108TV1Cka9y7yh9TcL34](https://asciinema.org/a/Cn2yU108TV1Cka9y7yh9TcL34)
+* **brain-gcd**: [https://asciinema.org/a/1WpZZS6il1dftsALVT2UWAqWB](https://asciinema.org/a/1WpZZS6il1dftsALVT2UWAqWB)
+* **brain-progression**: [https://asciinema.org/a/LpMSI4e9xr923m2bpzMrupBJr](https://asciinema.org/a/LpMSI4e9xr923m2bpzMrupBJr)
+* **brain-prime**: [https://asciinema.org/a/wXXBP6xQ76FarDyqoYtMBhMHC](https://asciinema.org/a/wXXBP6xQ76FarDyqoYtMBhMHC)
+
+В записях показаны сценарии с победой и поражением.
+
+---
+
+### Проверка и автотесты
+
+Проект автоматически проверяется при каждом коммите:
+
+* **Линтер** (`eslint` + правила Hexlet)
+* **Юнит-тесты** и **интеграция** запускаемых игр
+
+Статус сборок виден на вкладке **Actions** вашего репозитория.
+
+### Запуск тестов локально
+
+```bash
+npm test       # запустит все тесты
+npm run lint   # проверка статуса линтера
+```
+
+---
+
+### Структура проекта
+
+```
+backend-project-44/
+├── bin/                  # исполняемые файлы игр
+│   ├── brain-even.js
+│   ├── brain-calc.js
+│   ├── brain-gcd.js
+│   ├── brain-progression.js
+│   └── brain-prime.js
+├── games/                # модули логики отдельных игр
+│   ├── even.js
+│   ├── calc.js
+│   ├── gcd.js
+│   ├── progression.js
+│   └── prime.js
+├── src/                  # общий движок для запуска игр
+│   ├── cli.js
+│   └── index.js
+├── package.json
+├── .eslintrc.js
+├── .gitignore
+└── README.md
+```
