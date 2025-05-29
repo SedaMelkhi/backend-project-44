@@ -12,3 +12,6 @@ https://asciinema.org/a/Cn2yU108TV1Cka9y7yh9TcL34
 
 ### Запись игры brain-gcd
 https://asciinema.org/a/1WpZZS6il1dftsALVT2UWAqWB
+
+### Запись игры brain-progression
+https://asciinema.org/a/LpMSI4e9xr923m2bpzMrupBJr
