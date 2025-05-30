@@ -1,31 +1,21 @@
 #!/usr/bin/env node
-import { playRound } from '../src/playRound.js'
-import { getName } from '../src/cli.js'
+import runGameEngine from '../src/gameEngine.js'
 
-const brainCalc = (name, count = 0) => {
-  const firstNum = Math.round(Math.random() * 100)
-  const secondNum = Math.round(Math.random() * 100)
-  if (count === 0) {
-    console.log('Find the greatest common divisor of given numbers.')
-  }
-  let correctAnswer = 1
-  for (let i = 0; i <= firstNum; i++) {
-    if (firstNum % i === 0 && secondNum % i === 0) {
-      correctAnswer = String(i)
+const brainCalc = () => {
+  const rules = 'Find the greatest common divisor of given numbers.'
+  const generateQuestionAndAnswer = () => {
+    const firstNum = Math.round(Math.random() * 100)
+    const secondNum = Math.round(Math.random() * 100)
+    const question = `${firstNum} ${secondNum}`
+    let correctAnswer = 1
+    for (let i = 0; i <= firstNum; i++) {
+      if (firstNum % i === 0 && secondNum % i === 0) {
+        correctAnswer = String(i)
+      }
     }
+    return { question, correctAnswer }
   }
-  playRound({
-    question: `${firstNum} ${secondNum}`,
-    correctAnswer,
-    count,
-    name,
-    func: brainCalc,
-  })
+  runGameEngine(rules, generateQuestionAndAnswer)
 }
 
-const startGame = () => {
-  console.log('Welcome to the Brain Games!')
-  brainCalc(getName())
-}
-
-startGame()
+brainCalc()

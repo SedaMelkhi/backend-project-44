@@ -1,31 +1,20 @@
 #!/usr/bin/env node
-import { playRound } from '../src/playRound.js'
-import { getName } from '../src/cli.js'
+import runGameEngine from '../src/gameEngine.js'
 
-const brainPrime = (name, count = 0) => {
-  const randomNumber = Math.round(Math.random() * 100)
-  if (count === 0) {
-    console.log('Answer "yes" if given number is prime. Otherwise answer "no".')
-  }
-  let correctAnswer = 'yes'
-  for (let i = 2; i < randomNumber; i++) {
-    if (randomNumber % i === 0) {
-      correctAnswer = 'no'
-      break
+const brainPrime = () => {
+  const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".'
+  const generateQuestionAndAnswer = () => {
+    const randomNumber = Math.round(Math.random() * 100)
+    let correctAnswer = 'yes'
+    for (let i = 2; i < randomNumber; i++) {
+      if (randomNumber % i === 0) {
+        correctAnswer = 'no'
+        break
+      }
     }
+    return { question: randomNumber, correctAnswer }
   }
-  playRound({
-    question: randomNumber,
-    correctAnswer,
-    count,
-    name,
-    func: brainPrime,
-  })
+  runGameEngine(rules, generateQuestionAndAnswer)
 }
 
-const startGame = () => {
-  console.log('Welcome to the Brain Games!')
-  brainPrime(getName())
-}
-
-startGame()
+brainPrime()

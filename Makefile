@@ -9,3 +9,8 @@ lint:
 
 lint/fix:
 	npx eslint --fix .
+
+publish:
+	npm publish --dry-run
+
+	
